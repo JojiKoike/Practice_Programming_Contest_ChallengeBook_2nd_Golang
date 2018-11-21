@@ -64,7 +64,9 @@ func main() {
 		_from, _ := strconv.Atoi(txtedgeinfo[0])
 		_to, _ := strconv.Atoi(txtedgeinfo[1])
 		_cost, _ := strconv.Atoi(txtedgeinfo[2])
+		// Forward
 		es = append(es, edge{from: _from, to: _to, cost: _cost})
+		// Backward
 		es = append(es, edge{from: _to, to: _from, cost: _cost})
 	}
 
