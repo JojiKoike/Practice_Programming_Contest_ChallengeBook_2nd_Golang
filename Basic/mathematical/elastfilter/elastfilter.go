@@ -40,5 +40,7 @@ func main() {
 
 	res := sieve(n)
 	fmt.Printf("Result: %d\n", res)
-	fmt.Printf("Detected Primes: %v\n", prime)
+	if len(prime) <= 0 {
+		fmt.Printf("Detected Primes: %v\n", prime)
+	}
 }
