@@ -9,7 +9,11 @@ import (
 	"strings"
 )
 
+// INF is infinite value
 const INF = 100000.0
+
+// EPS is acceptable error amount
+const EPS = 1.0E-10
 
 // N is number of cables
 var N int
@@ -49,7 +53,7 @@ func main() {
 	// Solve
 	var lb = 0.0
 	var ub = INF
-	for i := 0; i < 100; i++ {
+	for ub-lb > EPS {
 		mid := (lb + ub) / 2.0
 		if judge(mid) {
 			lb = mid
