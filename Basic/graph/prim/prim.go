@@ -82,6 +82,7 @@ func main() {
 		v, _ := strconv.Atoi(uvc[1])
 		c, _ := strconv.Atoi(uvc[2])
 		cost[u][v] = c
+		cost[v][u] = c
 	}
 
 	// Solve And Show Result
