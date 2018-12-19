@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"os"
 	"strconv"
 	"strings"
@@ -26,4 +27,35 @@ func main() {
 		}
 		A[i] = row
 	}
+
+	// "1" last position in row
+	a := make([]int, N)
+	for i := 0; i < N; i++ {
+		a[i] = -1
+		for j := 0; j < N; j++ {
+			if A[i][j] == 1 {
+				a[i] = j
+			}
+		}
+	}
+
+	// Solve
+	res := 0
+	for i := 0; i < N; i++ {
+		pos := -1
+		for j := i; j < N; j++ {
+			if a[j] <= i {
+				pos = j
+				break
+			}
+		}
+
+		for j := pos; j > i; j-- {
+			a[j], a[j-1] = a[j-1], a[j]
+			res++
+		}
+	}
+
+	// Show Results
+	fmt.Printf("Result: %d\n", res)
 }
